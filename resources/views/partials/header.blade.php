@@ -9,7 +9,7 @@
             <nav>
                 <ul class="list-unstyled">
                     <li class="list-item">
-                        <a href="{{ route('movies.index') }}">Movies</a>{{-- Rotta da inserire --}}
+                        <a href="{{ route('movies.index') }}">Movies</a>
                     </li>
                 </ul>
             </nav>

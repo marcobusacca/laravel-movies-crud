@@ -21,7 +21,7 @@
                                 <td>{{ $movie->vote }}</td>
                                 <td>
                                     <a class="btn btn-info btn-sm" href="{{ route('movies.show', $movie->id )}}"><i class="fas fa-eye"></i></a>
-                                    <a class="btn btn-warning btn-sm" href=""><i class="fas fa-pen"></i></a>
+                                    <a class="btn btn-warning btn-sm" href="{{ route('movies.edit', $movie->id) }}"><i class="fas fa-pen"></i></a>
                                     <form class="d-inline-block" action="{{ route('movies.destroy', $movie->id) }}" onsubmit="return confirm('Sei sicuro di voler cancellare questo fumetto?')" method="POST">
                                         @csrf
                                         @method('DELETE')
