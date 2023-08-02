@@ -40,7 +40,7 @@ class MovieController extends Controller
     {
         $form_data = $this->$request->all();
 
-        $comic = new Movie();
+        $movie = new Movie();
 
         $movie->fill($form_data);
 
@@ -82,7 +82,7 @@ class MovieController extends Controller
     {
         $form_data = $request->all();
 
-        $comic->update($form_data);
+        $movie->update($form_data);
 
         return redirect()->route('movies.show', $movie->id);
     }
