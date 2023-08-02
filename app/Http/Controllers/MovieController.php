@@ -70,7 +70,7 @@ class MovieController extends Controller
      */
     public function update(UpdateMovieRequest $request, Movie $movie)
     {
-        $form_data = $this->validation($request->all());
+        $form_data = $request->all();
 
         $comic->update($form_data);
 
