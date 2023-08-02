@@ -70,7 +70,11 @@ class MovieController extends Controller
      */
     public function update(UpdateMovieRequest $request, Movie $movie)
     {
-        
+        $form_data = $this->validation($request->all());
+
+        $comic->update($form_data);
+
+        return redirect()->route('movies.show', $movie->id);
     }
 
     /**
