@@ -68,7 +68,7 @@ class MovieController extends Controller
      */
     public function edit(Movie $movie)
     {
-        //
+        return view('movies.edit', compact('movie'));
     }
 
     /**
@@ -80,7 +80,11 @@ class MovieController extends Controller
      */
     public function update(UpdateMovieRequest $request, Movie $movie)
     {
-        //
+        $form_data = $request->all();
+
+        $comic->update($form_data);
+
+        return redirect()->route('movies.show', $movie->id);
     }
 
     /**
