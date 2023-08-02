@@ -38,7 +38,7 @@ class MovieController extends Controller
      */
     public function store(StoreMovieRequest $request)
     {
-        $form_data = $this->$request->all();
+        $form_data = $request->all();
 
         $movie = new Movie();
 

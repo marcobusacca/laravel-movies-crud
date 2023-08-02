@@ -24,7 +24,29 @@ class UpdateMovieRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required|max:50',
+            'genre' => 'max:100',
+            'vote' => 'required|numeric|between:1,10',
+            'original_language' => 'required|max:50',
+            'length' => 'required|max:50',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'name.required' => 'Il nome è obbligatorio',
+            'name.max' => 'Il nome deve avere una lunghezza massima di :max caratteri',
+
+            'genre.max' => 'max:100',
+
+            'vote.required' => 'Il voto è obbligatorio',
+            'vote.between' => 'Il voto deve essere compreso tra :min e :max',
+
+            'original_language.required' => 'Il linguaggio è obbligatorio',
+            'original_language.max' => 'Il linguaggio deve avere una lunghezza massima di :max caratteri',
+            
+            'length.required' => 'La lunghezza deve avere una lunghezza massima di :max caratteri',
         ];
     }
 }
