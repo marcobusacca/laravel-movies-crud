@@ -52,12 +52,12 @@
                             <label class="control-label my-3">Linguaggio</label>
                             <select name="original_language" id="original_language" class="form-control" required>
                                 <option>Seleziona un Linguaggio</option>
-                                <option @selected(old('original_language'), $comic->original_language) value="Italiano">Italiano</option>
-                                <option @selected(old('original_language'), $comic->original_language) value="Inglese">Inglese</option>
-                                <option @selected(old('original_language'), $comic->original_language) value="Francese">Francese</option>
-                                <option @selected(old('original_language'), $comic->original_language) value="Tedesco">Tedesco</option>
-                                <option @selected(old('original_language'), $comic->original_language) value="Spagnolo">Spagnolo</option>
-                                <option @selected(old('original_language'), $comic->original_language) value="Altro">Altro</option>
+                                <option @selected(old('original_language') == 'Italiano', $comic->original_language) value="Italiano">Italiano</option>
+                                <option @selected(old('original_language') == 'Inglese', $comic->original_language) value="Inglese">Inglese</option>
+                                <option @selected(old('original_language') == 'Francese', $comic->original_language) value="Francese">Francese</option>
+                                <option @selected(old('original_language') == 'Tedesco', $comic->original_language) value="Tedesco">Tedesco</option>
+                                <option @selected(old('original_language') == 'Spagnolo', $comic->original_language) value="Spagnolo">Spagnolo</option>
+                                <option @selected(old('original_language') == 'Altro', $comic->original_language) value="Altro">Altro</option>
                             </select>
                             @error('original_language')
                                 <div class="text-danger">{{ $message }}</div>
