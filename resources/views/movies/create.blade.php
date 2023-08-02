@@ -2,62 +2,49 @@
 
 @section('content')
 <div class="row">
-        <div class="col-12 d-flex justify-content-center align-items-center">
-            <div class="">
+        <div class="col-12 d-flex justify-content-center align-items-center mt-3">
+            <div class="col-12 d-flex flex-column justify-content-center align-items-center">
                 <h2 class="fw-bold">INSERISCI UN NUOVO FILM</h2>
-                <a href="{{ route('movie.index')}}"  class="label">VEDI TUTTI I NOSTRI FUMETTI</a>
             </div>
         </div>
         <div>
             <div class="col-12 d-flex justify-content-center ">
-                <form action="{{ route('movie.store')}}" method="POST" class="col-6">
+                <form action="{{ route('movies.store')}}" method="POST" class="col-6 justify-content-center">
                     @csrf
                     <div class="form-group mb-3">
-                        <label class="control-label">Titolo</label>
-                        <input type="text" id="title" class="form-control" placeholder="Titolo" name="title">
+                        <label class="control-label">Titolo: </label>
+                        <input type="text" id="name" class="form-control" placeholder="Titolo del film" name="name" value="{{old('name')}}">
                     </div>
                     <div class="form-group mb-3">
-                        <label class="control-label">Descrizione</label>
-                        <input type="text" id="description" class="form-control" placeholder="Descrizione" name="description">
+                        <label class="control-label">Copertina:</label>
+                        <input type="text" id="img" class="form-control" placeholder="Incolla qui lo url" name="img" value="{{old('img')}}">
                     </div>
                     <div class="form-group mb-3">
-                        <label class="control-label">Copertina online</label>
-                        <input type="text" id="thumb" class="form-control" placeholder="Copertina online" name="thumb">
+                        <label class="control-label">Genere:</label>
+                        <input type="text" id="genre" class="form-control" placeholder="Inerisci i generi separati da una virgola" name="genre" value="{{old('genre')}}">
                     </div>
                     <div class="form-group mb-3">
-                        <label class="control-label">Copertina online</label>
-                        <input type="text" id="thumb2" class="form-control" placeholder="Copertina online" name="thumb2">
+                        <label class="control-label">Valutazione:</label>
+                        <input type="number" id="vote" class="form-control" min="1" max="10" placeholder="da 1 a 10 se presente" name="vote" value="{{old('vote')}}">
                     </div>
                     <div class="form-group mb-3">
-                        <label class="control-label">Copertina locale</label>
-                        <input type="text" id="cover_image" class="form-control" placeholder="Copertina locale" name="cover_image">
+                        <label class="control-label">Lingua originale:</label>
+                        <select class="form-select" id="original_language" name="original_language" >
+                            <option >Seleziona la lingua</option>
+                            <option @selected(old('original_language') == 'Italiano') value="Italiano">Italiano</option>
+                            <option @selected(old('original_language') == 'Inglese') value="Inglese">Inglese</option>
+                            <option @selected(old('original_language') == 'Francese') value="Francese">Francese</option>
+                            <option @selected(old('original_language') == 'Tedesco') value="Tedesco">Tedesco</option>
+                            <option @selected(old('original_language') == 'Spagnolo') value="Spagnolo">Spagnolo</option>
+                            <option @selected(old('original_language') == 'Altro') value="Altro">Altro</option>
+                        </select>
                     </div>
                     <div class="form-group mb-3">
-                        <label class="control-label">Prezzo in €</label>
-                        <input type="text" id="price" class="form-control" placeholder="0.00€" name="price">
+                        <label class="control-label">Durata:</label>
+                        <input type="number" id="length" class="form-control" min="30" max="240" placeholder="Inserisci il minutaggio" name="length" value="{{old('length')}}">
                     </div>
-                    <div class="form-group mb-3">
-                        <label class="control-label">Serie</label>
-                        <input type="text" id="series" class="form-control" placeholder="Serie" name="series">
-                    </div>
-                    <div class="form-group mb-3">
-                        <label class="control-label">Data uscita</label>
-                        <input type="date" id="sale_date" class="form-control" placeholder="Data uscita" name="sale_date">
-                    </div>
-                    <div class="form-group mb-3">
-                        <label class="control-label">Tipo</label>
-                        <input type="text" id="type" class="form-control" placeholder="Tipo" name="type">
-                    </div>
-                    <div class="form-group mb-3">
-                        <label class="control-label">Artisti</label>
-                        <input type="text" id="artists" class="form-control" placeholder="Artisti, separati da una virgola" name="artists">
-                    </div>
-                    <div class="form-group mb-3">
-                        <label class="control-label">Scrittori</label>
-                        <input type="text" id="writers" class="form-control" placeholder="Scrittori, separati da una virgola" name="writers">
-                    </div>
-                    <div class="d-flex">
-                        <button class="label align-self-center" type="submit" > CREA </button>
+                    <div class="col-12 d-flex justify-content-center align-items-center">
+                        <button class="label align-self-center btn btn-dark" type="submit"> CREA </button>
                     </div>
                 </form>
             </div>
