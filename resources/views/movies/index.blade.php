@@ -13,8 +13,8 @@
                             <th scope="col">Azioni</th>                            
                         </tr>
                     </thead>
-                    @foreach ($movies as $movie)  
-                        <tbody>
+                    <tbody>
+                        @foreach ($movies as $movie)  
                             <tr>
                                 <th scope="row">{{ $movie->name }}</th>
                                 <td>{{ $movie->genre }}</td>
@@ -22,11 +22,15 @@
                                 <td>
                                     <a class="btn btn-info btn-sm" href="{{ route('movies.show', $movie->id )}}"><i class="fas fa-eye"></i></a>
                                     <a class="btn btn-warning btn-sm" href=""><i class="fas fa-pen"></i></a>
-                                    <a class="btn btn-danger btn-sm" href=""><i class="fas fa-trash"></i></a>
+                                    <form class="d-inline-block" action="{{ route('movies.destroy', $movie->id) }}" onsubmit="return confirm('Sei sicuro di voler cancellare questo fumetto?')" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>
+                                    </form>
                                 </td>
                             </tr>
-                        </tbody>
-                    @endforeach
+                        @endforeach
+                    </tbody>
                 </table>
             </div>
         </div>

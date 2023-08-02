@@ -2,29 +2,35 @@
 
 @import '/node_modules/@fortawesome/fontawesome-free/css/all.min.css';
 
-header{
+header {
     padding: 10px 0px;
-    a{
+
+    a {
         color: #fff;
         text-decoration: none;
     }
 
-    ul{
-       display: flex;
-       align-items: center;
-       margin-bottom: 0px;
+    ul {
+        display: flex;
+        align-items: center;
+        margin-bottom: 0px;
 
-       li{  
+        li {
             margin: 0 10px;
-            
-            a{
+
+            a {
                 color: #fff;
                 text-transform: uppercase;
                 text-decoration: none;
             }
 
-       }
+        }
 
-       
+
     }
+}
+
+.img-show {
+    width: 400px;
+    height: 400px;
 }
